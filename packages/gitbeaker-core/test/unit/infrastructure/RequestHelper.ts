@@ -246,8 +246,8 @@ describe('RequestHelper.get()', () => {
     service.show = jest.fn(() => RequestHelper.get(service, 'test'));
     requester.get = jest.fn(() => ({
       body: [
-        { id: 3, gravatar_enable: true },
-        { id: 4, gravatar_enable: false },
+        { id: 3, gravatar_enable: true }, // eslint-disable-line
+        { id: 4, gravatar_enable: false }, // eslint-disable-line
       ],
       headers: {},
     }));
@@ -262,11 +262,11 @@ describe('RequestHelper.get()', () => {
 
   it('should return simple response with default keys without camelize option', async () => {
     service.show = jest.fn(() => RequestHelper.get(service, 'test'));
-    requester.get = jest.fn(() => ({ body: { id: 3, gravatar_enable: true }, headers: {} }));
+    requester.get = jest.fn(() => ({ body: { id: 3, gravatar_enable: true }, headers: {} })); // eslint-disable-line
 
     const results = await service.show();
 
-    expect(results).toMatchObject({ id: 3, gravatar_enable: true });
+    expect(results).toMatchObject({ id: 3, gravatar_enable: true }); // eslint-disable-line
   });
 });
 
